@@ -14,5 +14,38 @@ pipeline {
                 sh 'python3  Webhook/main.py'
             }
         }
+        stage('1') {
+            steps {
+                
+                echo 'build in 1'
+                sh 'python3  Webhook/main.py'
+            }
+        }
+        stage('2') {
+            steps {
+                
+                echo 'build in 2'
+                sh 'python3  Webhook/main.py'
+            }
+        }
     }
+    
+     post {
+        always {
+            echo 'Always'
+        }
+        success {
+            echo 'Only on SUCCESS'
+        }
+        failure {
+            echo 'Only on Failure'
+        }
+        unstable {
+            echo 'Only if run is unstable'
+        }
+        changed {
+            echo 'Only if status changed from Success to Failure or vice versa w.r.t. last run.'
+        }
+    }
+    
 }
