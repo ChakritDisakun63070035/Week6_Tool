@@ -14,17 +14,17 @@ pipeline {
                 sh 'python3  Webhook/main.py'
             }
         }
-        stage('1') {
-            steps {
-                
-                echo 'build in 1'
-                sh 'python3  Webhook/main.py'
-            }
-        }
-        stage('2') {
+        stage('build 2') {
             steps {
                 
                 echo 'build in 2'
+                sh 'python3  Webhook/main.py'
+            }
+        }
+        stage('build 3') {
+            steps {
+                
+                echo 'build in 3'
                 sh 'python3  Webhook/main.py'
             }
         }
